@@ -69,7 +69,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 					'label' => '',
 					'name' => 'list_flex',
 					'type' => 'flexible_content',
-					'button_label' => esc_html__( 'Add list', 'hogan-links' ),
+					'button_label' => esc_html__( 'Add links', 'hogan-links' ),
 					'wrapper' => [
 						'class' => 'links-layouts',
 					],
@@ -86,7 +86,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 									'name' => 'manual_list',
 									'type' => 'repeater',
 									'layout' => 'block',
-									'button_label' => esc_html__( 'New link', 'hogan-links' ),
+									'button_label' => esc_html__( 'More', 'hogan-links' ),
 									'sub_fields' => [
 										[
 											'key' => $this->field_key . '_manual_link',
