@@ -86,13 +86,15 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 									'name' => 'manual_list',
 									'type' => 'repeater',
 									'layout' => 'block',
-									'button_label' => esc_html__( 'More', 'hogan-links' ),
+									'button_label' => esc_html__( 'Add another link', 'hogan-links' ),
+									'min' => 1,
 									'sub_fields' => [
 										[
 											'key' => $this->field_key . '_manual_link',
 											'label' => esc_html__( 'Select link and set text', 'hogan-links' ),
 											'name' => 'link',
 											'type' => 'link',
+											'required' => 1,
 											'return_format' => 'array',
 											'wrapper' => [
 												'width' => '50',
@@ -114,21 +116,22 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 						[
 							'key' => $this->field_key . '_flex_predefined',
 							'name' => 'predefined',
-							'label' => esc_html__( 'Predefined', 'hogan-links' ),
+							'label' => esc_html__( 'Predefined menu', 'hogan-links' ),
 							'display' => 'block',
 							'sub_fields' => [
 								[
 									'key' => $this->field_key . '_flex_predefined_list',
-									'label' => esc_html__( 'Select list', 'hogan-links' ),
+									'label' => esc_html__( 'Select predefined menu', 'hogan-links' ),
 									'name' => 'predefined_links',
 									'type' => 'select',
 									'allow_null' => 1,
-									'instructions' => esc_html__( 'Define list under "Menu".', 'hogan-links' ),
+									'instructions' => sprintf( __( 'A predefined menu must be created <a href="%s">here</a> in order to show up in this dropdown.', 'hogan-links' ), admin_url() . '/nav-menus.php' ),
 									'choices' => [],
 									'ui' => 1,
 									'ajax' => 1,
 									'return_format' => 'value',
 									'placeholder' => esc_html__( 'Select', 'hogan-links' ),
+									'required' => 1,
 								],
 							],
 						],
