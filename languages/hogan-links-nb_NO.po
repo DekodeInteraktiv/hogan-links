@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Hogan Module: Links\n"
-"POT-Creation-Date: 2017-12-12 10:10+0100\n"
-"PO-Revision-Date: 2017-12-12 10:11+0100\n"
+"POT-Creation-Date: 2017-12-12 13:20+0100\n"
+"PO-Revision-Date: 2017-12-12 13:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nb_NO\n"
@@ -23,50 +23,51 @@ msgstr ""
 
 #: class-links.php:36
 msgid "Links"
-msgstr ""
+msgstr "Lenker"
 
 #: class-links.php:72
 msgid "Add links"
-msgstr ""
+msgstr "Legg til lenker"
 
 #: class-links.php:80
 msgid "Manual"
-msgstr ""
+msgstr "Egendefinerte lenker"
 
 #: class-links.php:89
 msgid "Add another link"
-msgstr ""
+msgstr "Ny lenke"
 
 #: class-links.php:94
 msgid "Select link and set text"
-msgstr ""
+msgstr "Sett en lenke og visningstekst"
 
 #: class-links.php:105
 msgid "Short description"
-msgstr ""
+msgstr "Kort beskrivelse"
 
 #: class-links.php:119
 msgid "Predefined menu"
-msgstr ""
+msgstr "Forhåndsdefinert meny"
 
 #: class-links.php:124
 msgid "Select predefined menu"
-msgstr ""
+msgstr "Velg en forhåndsdefinert meny"
 
 #: class-links.php:128
 #, php-format
 msgid ""
 "A predefined menu must be created <a href=\"%s\">here</a> in order to show "
-"up in this list"
+"up in this dropdown."
 msgstr ""
+"En meny må opprettes <a href=%s>her</a> for å dukke opp i nedtrekkslisten."
 
 #: class-links.php:133
 msgid "Select"
-msgstr ""
+msgstr "Velg"
 
 #. Plugin Name of the plugin/theme
 msgid "Hogan Module: Links"
-msgstr ""
+msgstr "Hoganmodul: Lenker"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/dekodeinteraktiv/hogan-links"
@@ -74,7 +75,7 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid "Links Module for Hogan"
-msgstr ""
+msgstr "Lenker for Hogan"
 
 #. Author of the plugin/theme
 msgid "Dekode"
