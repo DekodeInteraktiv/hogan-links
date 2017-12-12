@@ -1,0 +1,11 @@
+.acf-field-flexible-content.links-layouts {
+	background-color:  #fff;
+}
+
+.acf-field-flexible-content.links-layouts .layout {
+	border: solid 1px rgb(220,220,220);
+}
+
+.acf-field-flexible-content.links-layouts .layout .acf-fc-layout-handle {
+	background-color: rgba( 220, 220, 220, .5 );
+}
