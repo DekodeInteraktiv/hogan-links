@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) || ! ( $this instanceof Links ) ) {
 }
 
 if ( ! empty( $this->heading ) ) : ?>
-	<h2><?php echo esc_html( $this->heading ); ?></h2>
+	<h2 class="hogan-heading"><?php echo esc_html( $this->heading ); ?></h2>
 <?php
 endif;
 // TODO: base klasse på ul og li?
