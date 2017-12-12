@@ -150,7 +150,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 		 */
 		public function load_args_from_layout_content( array $raw_content, int $counter = 0 ) {
 
-			$this->list = is_array( $raw_content['list_flex'] ) ? $raw_content['list_flex'] : [];
+			$this->list = $this->get_list_items( $raw_content['list_flex'] );
 
 			add_filter( 'hogan/module/links/inner_wrapper_tag', function() {
 				return 'nav';
@@ -174,41 +174,47 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 		 * @param array $list The list.
 		 * @return array Two dimensional array with keys href, target, title and description.
 		 */
-		public function get_list_items( array $list ) : array {
+		public function get_list_items( array $raw_list ) : array {
 
-			$items = [];
-			switch ( $list['acf_fc_layout'] ) {
-
-				case 'predefined':
-					$menu = $list['predefined_links'];
-					foreach ( wp_get_nav_menu_items( $menu ) as $link ) {
-						$items[] = [
-							'href' => $link->url,
-							'target' => '',
-							'title' => $link->title,
-							'description' => $link->description,
-						];
-					}
-					break;
-				case 'manual':
-					foreach ( $list['manual_list'] as $item ) {
-
-						if ( empty( $item['link']['url'] ) ) {
-							break;
-						}
-
-						$items[] = [
-							'href' => $item['link']['url'],
-							'target' => $item['link']['target'],
-							'title' => empty( $item['link']['title'] ) ? $item['link']['url'] : $item['link']['title'],
-							'description' => $item['link_description'],
-						];
-					}
-					break;
-				default:
-					break;
+			if ( ! is_array( $raw_list ) ){
+				return '';
 			}
 
+			$items = [];
+			foreach ( $raw_list as $list ) {
+
+				switch ( $list['acf_fc_layout'] ) {
+
+					case 'predefined':
+						$menu = $list['predefined_links'];
+						foreach ( wp_get_nav_menu_items( $menu ) as $link ) {
+							$items[] = [
+								'href' => $link->url,
+								'target' => '',
+								'title' => $link->title,
+								'description' => $link->description,
+							];
+						}
+						break;
+					case 'manual':
+						foreach ( $list['manual_list'] as $item ) {
+
+							if ( empty( $item['link']['url'] ) ) {
+								break;
+							}
+
+							$items[] = [
+								'href' => $item['link']['url'],
+								'target' => $item['link']['target'],
+								'title' => empty( $item['link']['title'] ) ? $item['link']['url'] : $item['link']['title'],
+								'description' => $item['link_description'],
+							];
+						}
+						break;
+					default:
+						break;
+				}
+			}
 			return $items;
 		}
 	}
