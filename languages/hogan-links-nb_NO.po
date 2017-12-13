@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Hogan Module: Links\n"
 "POT-Creation-Date: 2017-12-12 13:20+0100\n"
-"PO-Revision-Date: 2017-12-12 13:22+0100\n"
+"PO-Revision-Date: 2017-12-13 16:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nb_NO\n"
@@ -39,7 +39,7 @@ msgstr "Ny lenke"
 
 #: class-links.php:94
 msgid "Select link and set text"
-msgstr "Sett en lenke og visningstekst"
+msgstr "Legg til lenke og lenketekst"
 
 #: class-links.php:105
 msgid "Short description"
