@@ -39,6 +39,6 @@ function hogan_links_load_textdomain() {
  */
 function hogan_links_register_module() {
 	require_once 'class-links.php';
-	require_once 'includes/template-tags.php';
+	require_once 'includes/helper-functions.php';
 	hogan_register_module( new \Dekode\Hogan\Links() );
 }
