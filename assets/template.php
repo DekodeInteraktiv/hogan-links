@@ -20,16 +20,17 @@ if ( ! defined( 'ABSPATH' ) || ! ( $this instanceof Links ) ) {
 
 if ( ! empty( $this->heading ) ) : ?>
 	<h2 class="hogan-heading"><?php echo esc_html( $this->heading ); ?></h2>
+<?php endif; ?>
+
+<ul class="<?php echo esc_attr( implode( ' ', apply_filters( 'hogan/module/links/list_classes', [], $this ) ) ); ?>">
+
 <?php
-endif;
-// TODO: base klasse på ul og li?
-?>
-<ul>
-<?php
-$list_li_classes = apply_filters( 'hogan/module/links/list_li_classes', [], $this, $this->list );
 $item_counter = 0;
 
 foreach ( $this->list as $item ) :
+
+	$list_li_classes = apply_filters( 'hogan/module/links/list_li_classes', [], $item, $this, $item_counter );
+
 	?>
 	<li class="<?php echo esc_attr( implode( ' ', $list_li_classes ) ); ?>">
 		<?php $unique_item_id = 'link-list-item-' . $this->counter . '-' . $item_counter; ?>
