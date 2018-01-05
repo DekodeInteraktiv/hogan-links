@@ -85,6 +85,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 									'label' => 'Lenker',
 									'name' => 'manual_list',
 									'type' => 'repeater',
+									'min' => 1,
 									'layout' => 'block',
 									'button_label' => esc_html__( 'Add another link', 'hogan-links' ),
 									'min' => 1,
