@@ -64,49 +64,49 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 			// Heading field can be disabled using filter hogan/module/links/heading/enabled (true/false).
 			hogan_append_heading_field( $fields, $this );
 
-			array_push(	$fields,
+			array_push( $fields,
 				[
-					'key' => $this->field_key . '_flex',
-					'label' => '',
-					'name' => 'list_flex',
-					'type' => 'flexible_content',
+					'key'          => $this->field_key . '_flex',
+					'label'        => '',
+					'name'         => 'list_flex',
+					'type'         => 'flexible_content',
 					'button_label' => esc_html__( 'Add links', 'hogan-links' ),
-					'wrapper' => [
+					'wrapper'      => [
 						'class' => 'links-layouts',
 					],
-					'layouts' => [
+					'layouts'      => [
 						[
-							'key' => $this->field_key . '_flex_manual',
-							'name' => 'manual',
-							'label' => esc_html__( 'Manual', 'hogan-links' ),
-							'display' => 'block',
+							'key'        => $this->field_key . '_flex_manual',
+							'name'       => 'manual',
+							'label'      => esc_html__( 'Manual', 'hogan-links' ),
+							'display'    => 'block',
 							'sub_fields' => [
 								[
-									'key' => $this->field_key . '_manual_list',
-									'label' => 'Lenker',
-									'name' => 'manual_list',
-									'type' => 'repeater',
-									'min' => 1,
-									'layout' => 'block',
+									'key'          => $this->field_key . '_manual_list',
+									'label'        => 'Lenker',
+									'name'         => 'manual_list',
+									'type'         => 'repeater',
+									'min'          => 1,
+									'layout'       => 'block',
 									'button_label' => esc_html__( 'Add another link', 'hogan-links' ),
-									'min' => 1,
-									'sub_fields' => [
+									'min'          => 1,
+									'sub_fields'   => [
 										[
-											'key' => $this->field_key . '_manual_link',
-											'label' => esc_html__( 'Select link and set text', 'hogan-links' ),
-											'name' => 'link',
-											'type' => 'link',
+											'key'      => $this->field_key . '_manual_link',
+											'label'    => esc_html__( 'Select link and set text', 'hogan-links' ),
+											'name'     => 'link',
+											'type'     => 'link',
 											'required' => 1,
 											'return_format' => 'array',
-											'wrapper' => [
+											'wrapper'  => [
 												'width' => '50',
 											],
 										],
 										[
-											'key' => $this->field_key . '_manual_link_description',
-											'label' => esc_html__( 'Short description', 'hogan-links' ),
-											'name' => 'link_description',
-											'type' => 'text',
+											'key'     => $this->field_key . '_manual_link_description',
+											'label'   => esc_html__( 'Short description', 'hogan-links' ),
+											'name'    => 'link_description',
+											'type'    => 'text',
 											'wrapper' => [
 												'width' => '50',
 											],
@@ -116,24 +116,25 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 							],
 						],
 						[
-							'key' => $this->field_key . '_flex_predefined',
-							'name' => 'predefined',
-							'label' => esc_html__( 'Predefined menu', 'hogan-links' ),
-							'display' => 'block',
+							'key'        => $this->field_key . '_flex_predefined',
+							'name'       => 'predefined',
+							'label'      => esc_html__( 'Predefined menu', 'hogan-links' ),
+							'display'    => 'block',
 							'sub_fields' => [
 								[
-									'key' => $this->field_key . '_flex_predefined_list',
-									'label' => esc_html__( 'Select predefined menu', 'hogan-links' ),
-									'name' => 'predefined_links',
-									'type' => 'select',
-									'allow_null' => 1,
-									'instructions' => sprintf( __( 'A predefined menu must be created <a href="%s">here</a> in order to show up in this dropdown.', 'hogan-links' ), admin_url() . 'nav-menus.php' ),
-									'choices' => [],
-									'ui' => 1,
-									'ajax' => 1,
+									'key'           => $this->field_key . '_flex_predefined_list',
+									'label'         => esc_html__( 'Select predefined menu', 'hogan-links' ),
+									'name'          => 'predefined_links',
+									'type'          => 'select',
+									'allow_null'    => 1,
+									// Translators: %s: Url to navigation menu page.
+									'instructions'  => sprintf( __( 'A predefined menu must be created <a href="%s">here</a> in order to show up in this dropdown.', 'hogan-links' ), admin_url() . 'nav-menus.php' ),
+									'choices'       => [],
+									'ui'            => 1,
+									'ajax'          => 1,
 									'return_format' => 'value',
-									'placeholder' => esc_html__( 'Select', 'hogan-links' ),
-									'required' => 1,
+									'placeholder'   => esc_html__( 'Select', 'hogan-links' ),
+									'required'      => 1,
 								],
 							],
 						],
@@ -169,12 +170,12 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 		/**
 		 * Get list items.
 		 *
-		 * @param array $list The list.
+		 * @param array $raw_list The list.
 		 * @return array Two dimensional array with keys href, target, title and description.
 		 */
 		public function get_list_items( array $raw_list ) : array {
 
-			if ( ! is_array( $raw_list ) ){
+			if ( ! is_array( $raw_list ) ) {
 				return '';
 			}
 
@@ -187,9 +188,9 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 						$menu = $list['predefined_links'];
 						foreach ( wp_get_nav_menu_items( $menu ) as $link ) {
 							$items[] = [
-								'href' => $link->url,
-								'target' => $link->target,
-								'title' => $link->title,
+								'href'        => $link->url,
+								'target'      => $link->target,
+								'title'       => $link->title,
 								'description' => $link->description,
 							];
 						}
@@ -202,9 +203,9 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 							}
 
 							$items[] = [
-								'href' => $item['link']['url'],
-								'target' => $item['link']['target'],
-								'title' => empty( $item['link']['title'] ) ? $item['link']['url'] : $item['link']['title'],
+								'href'        => $item['link']['url'],
+								'target'      => $item['link']['target'],
+								'title'       => empty( $item['link']['title'] ) ? $item['link']['url'] : $item['link']['title'],
 								'description' => $item['link_description'],
 							];
 						}
