@@ -59,12 +59,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 		 */
 		public function get_fields() : array {
 
-			$fields = [];
-
-			// Heading field can be disabled using filter hogan/module/links/heading/enabled (true/false).
-			hogan_append_heading_field( $fields, $this );
-
-			array_push( $fields,
+			$fields = [
 				[
 					'key'          => $this->field_key . '_flex',
 					'label'        => '',
@@ -139,8 +134,9 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 							],
 						],
 					],
-				]
-			);
+				],
+			];
+
 			return $fields;
 		}
 
