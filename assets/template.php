@@ -5,7 +5,6 @@
  * $this is an instace of the Links object.
  *
  * Available properties:
- * $this->heading (string) Module heading.
  * $this->list (array) List with link items.
  *
  * @package Hogan
@@ -18,9 +17,7 @@ if ( ! defined( 'ABSPATH' ) || ! ( $this instanceof Links ) ) {
 	return; // Exit if accessed directly.
 }
 
-if ( ! empty( $this->heading ) ) : ?>
-	<h2 class="hogan-heading"><?php echo esc_html( $this->heading ); ?></h2>
-<?php endif; ?>
+?>
 
 <ul class="<?php echo esc_attr( implode( ' ', apply_filters( 'hogan/module/links/list_classes', [], $this ) ) ); ?>">
 

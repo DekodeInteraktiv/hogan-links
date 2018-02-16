@@ -11,6 +11,8 @@ namespace Dekode\Hogan\Links;
  * Load nav_menu into select field.
  *
  * @param array $field Field array.
+ *
+ * @return array $field Field array.
  */
 function load_predefined_links_choices( $field ) {
 	$menus = get_terms( 'nav_menu', array( 'hide_empty' => false ) );
