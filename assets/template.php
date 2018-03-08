@@ -17,19 +17,19 @@ if ( ! defined( 'ABSPATH' ) || ! ( $this instanceof Links ) ) {
 	return; // Exit if accessed directly.
 }
 
+$classnames = hogan_classnames( 'hogan-links', apply_filters( 'hogan/module/links/list_classes', [], $this ) );
 ?>
-
-<ul class="<?php echo esc_attr( implode( ' ', apply_filters( 'hogan/module/links/list_classes', [], $this ) ) ); ?>">
+<ul class="<?php echo esc_attr( $classnames ); ?>">
 
 <?php
 $item_counter = 0;
 
 foreach ( $this->list as $item ) :
 
-	$list_li_classes = apply_filters( 'hogan/module/links/list_li_classes', [], $item, $this, $item_counter );
+	$list_li_classes = hogan_classnames( 'hogan-links-item', apply_filters( 'hogan/module/links/list_li_classes', [], $item, $this, $item_counter ) );
 
 	?>
-	<li class="<?php echo esc_attr( implode( ' ', $list_li_classes ) ); ?>">
+	<li class="<?php echo esc_attr( $list_li_classes ); ?>">
 		<?php $unique_item_id = 'link-list-item-' . $this->counter . '-' . $item_counter; ?>
 
 		<a href="<?php echo esc_url( $item['href'] ); ?>"
