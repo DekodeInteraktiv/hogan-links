@@ -15,7 +15,7 @@ namespace Dekode\Hogan\Links;
  * @return array $field Field array.
  */
 function load_predefined_links_choices( $field ) {
-	$menus = get_terms( 'nav_menu', array( 'hide_empty' => false ) );
+	$menus = get_terms( 'nav_menu', [ 'hide_empty' => false ] );
 
 	if ( empty( $menus ) ) {
 		return $field;
