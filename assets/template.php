@@ -49,6 +49,8 @@ foreach ( $this->list as $item ) :
 			<?php if ( ! empty( $item['description'] ) ) : ?>
 				<span id="<?php echo esc_attr( $unique_item_id ); ?>" class="hogan-link-description"><?php echo esc_html( $item['description'] ); ?></span>
 			<?php endif; ?>
+
+			<?php do_action( 'hogan_links_after_text' ); ?>
 		</a>
 	</li>
 	<?php
