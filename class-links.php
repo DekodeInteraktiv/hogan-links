@@ -201,7 +201,7 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 							$items[] = [
 								'href'        => $item['link']['url'],
 								'target'      => $item['link']['target'],
-								'title'       => empty( $item['link']['title'] ) ? $item['link']['url'] : $item['link']['title'],
+								'title'       => hogan_get_link_title( $item['link'] ),
 								'description' => $item['link_description'],
 							];
 						}
