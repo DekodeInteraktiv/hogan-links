@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.2]
+- Set link text if not set in WP link picker
+
 ## [1.1.1]
 - Added default classname to the `<ul>` and `<li>` elements
 - Added `hogan_links_after_text` after text action.
