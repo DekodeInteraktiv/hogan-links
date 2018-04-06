@@ -9,17 +9,14 @@ cache:
 matrix:
   include:
     - php: 7.2
-      env: WP_TRAVISCI=phpcs
     - php: 7.1
-      env: WP_TRAVISCI=phpcs
     - php: 7.0
-      env: WP_TRAVISCI=phpcs
 
 install:
-  - composer install
+  - composer install --prefer-dist
 
 script:
-  - find . -name '*.php' ! -path "./vendor/*" ! -path "./wp-content/*" -print0 | xargs -0 -n 1 -P 4 php -l
+  - find . -name '*.php' ! -path './vendor/*' ! -path './wp-content/*' -print0 | xargs -0 -n 1 -P 4 php -l
   - ./vendor/bin/phpcs --runtime-set testVersion $TRAVIS_PHP_VERSION
 
 notifications:
