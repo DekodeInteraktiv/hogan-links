@@ -1,6 +1,5 @@
 sudo: false
 dist: trusty
-
 language: php
 
 cache:
@@ -17,25 +16,16 @@ matrix:
       env: WP_TRAVISCI=phpcs
 
 before_script:
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - |
-    if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
-      phpenv config-rm xdebug.ini
-    else
-      echo "xdebug.ini does not exist"
-    fi
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      composer global require wp-coding-standards/wpcs
-      composer global require wimg/php-compatibility
-      phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs,$HOME/.composer/vendor/wimg/php-compatibility
+      composer install;
     fi
 
 script:
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
-      phpcs --runtime-set testVersion $TRAVIS_PHP_VERSION
+      find . -name '*.php' ! -path "./vendor/*" ! -path "./wp-content/*" -print0 | xargs -0 -n 1 -P 4 php -l
+      ./vendor/bin/phpcs --runtime-set testVersion $TRAVIS_PHP_VERSION
     fi
 
 notifications:
