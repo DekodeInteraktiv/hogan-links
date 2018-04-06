@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/dekodeinteraktiv/hogan-links
  * GitHub Plugin URI: https://github.com/dekodeinteraktiv/hogan-links
  * Description: Links Module for Hogan
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Dekode
  * Author URI: https://dekode.no
  * License: GPL-3.0-or-later
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\hogan_links_load_textdomain' );
-add_action( 'hogan/include_modules', __NAMESPACE__ . '\\hogan_links_register_module' );
+add_action( 'hogan/include_modules', __NAMESPACE__ . '\\hogan_links_register_module', 10, 1 );
 
 /**
  * Register module text domain
@@ -36,9 +36,12 @@ function hogan_links_load_textdomain() {
 
 /**
  * Register module in Hogan
+ *
+ * @param \Dekode\Hogan\Core $core Hogan Core instance.
+ * @return void
  */
-function hogan_links_register_module() {
+function hogan_links_register_module( \Dekode\Hogan\Core $core ) {
 	require_once 'class-links.php';
 	require_once 'includes/helper-functions.php';
-	hogan_register_module( new \Dekode\Hogan\Links() );
+	$core->register_module( new \Dekode\Hogan\Links() );
 }
