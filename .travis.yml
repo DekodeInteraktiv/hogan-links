@@ -15,18 +15,12 @@ matrix:
     - php: 7.0
       env: WP_TRAVISCI=phpcs
 
-before_script:
-  - |
-    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      composer install;
-    fi
+install:
+  - composer install
 
 script:
-  - |
-    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      find . -name '*.php' ! -path "./vendor/*" ! -path "./wp-content/*" -print0 | xargs -0 -n 1 -P 4 php -l
-      ./vendor/bin/phpcs --runtime-set testVersion $TRAVIS_PHP_VERSION
-    fi
+  - find . -name '*.php' ! -path "./vendor/*" ! -path "./wp-content/*" -print0 | xargs -0 -n 1 -P 4 php -l
+  - ./vendor/bin/phpcs --runtime-set testVersion $TRAVIS_PHP_VERSION
 
 notifications:
   email: false
