@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.5
+- Move `.hogan-links` class to filter default.
+
 ## 1.1.4
 - Move `.hogan-links-item` class to filter default. [#16](https://github.com/DekodeInteraktiv/hogan-links/pull/16)
 

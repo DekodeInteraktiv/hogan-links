@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) || ! ( $this instanceof Links ) ) {
 	return; // Exit if accessed directly.
 }
 
-$classnames = hogan_classnames( 'hogan-links', apply_filters( 'hogan/module/links/list_classes', [], $this ) );
+$classnames = hogan_classnames( apply_filters( 'hogan/module/links/list_classes', [ 'hogan-links' ], $this ) );
 ?>
 <ul class="<?php echo esc_attr( $classnames ); ?>">
 
