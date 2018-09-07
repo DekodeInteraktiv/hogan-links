@@ -26,7 +26,7 @@ $item_counter = 0;
 
 foreach ( $this->list as $item ) :
 
-	$list_li_classes = hogan_classnames( 'hogan-links-item', apply_filters( 'hogan/module/links/list_li_classes', [], $item, $this, $item_counter ) );
+	$list_li_classes = hogan_classnames( apply_filters( 'hogan/module/links/list_li_classes', [ 'hogan-links-item' ], $item, $this, $item_counter ) );
 
 	?>
 	<li class="<?php echo esc_attr( $list_li_classes ); ?>">
