@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.4
+- Move `.hogan-links-item` class to filter default. [#16](https://github.com/DekodeInteraktiv/hogan-links/pull/16)
+
 ## 1.1.3
 - Update module to new registration method introduced in [Hogan Core 1.1.7](https://github.com/DekodeInteraktiv/hogan-core/releases/tag/1.1.7)
 - Set hogan-core dependency `"dekodeinteraktiv/hogan-core": ">=1.1.7"`
