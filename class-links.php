@@ -149,7 +149,9 @@ if ( ! class_exists( '\\Dekode\\Hogan\\Links' ) && class_exists( '\\Dekode\\Hoga
 		 */
 		public function load_args_from_layout_content( array $raw_content, int $counter = 0 ) {
 
-			$this->list = $this->get_list_items( $raw_content['list_flex'] );
+			if (is_array($raw_content['list_flex'])) {
+				$this->list = $this->get_list_items( $raw_content['list_flex'] );
+			}
 
 			parent::load_args_from_layout_content( $raw_content, $counter );
 		}
